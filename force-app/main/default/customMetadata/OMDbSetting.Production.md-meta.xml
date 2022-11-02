@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Production</label>
+    <protected>false</protected>
+    <values>
+        <field>APIKey__c</field>
+        <value xsi:type="xsd:string">bf234837</value>
+    </values>
+    <values>
+        <field>HostData__c</field>
+        <value xsi:type="xsd:string">http://www.omdbapi.com</value>
+    </values>
+    <values>
+        <field>HostImages__c</field>
+        <value xsi:type="xsd:string">http://img.omdbapi.com</value>
+    </values>
+    <values>
+        <field>IsSandbox__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>
