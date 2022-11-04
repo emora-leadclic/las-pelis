@@ -39,20 +39,28 @@ public class OMDb {
 
     public MovieSearchResult findMoviesByTitle(String searchText) {
         setURLParameters(URL_PARAMETER_SEARCH_TITLE, searchText);
-        HttpRequest request = generateHttpRequest();
-        HttpResponse response = (new Http()).send(request);
-        if (response != null && response.getStatusCode() == STATUS_CODE_SUCCESS) {
-            return (MovieSearchResult) JSON.deserialize(response.getBody(), MovieSearchResult.class);
+        try {
+            HttpRequest request = generateHttpRequest();
+            HttpResponse response = (new Http()).send(request);
+            if (response != null && response.getStatusCode() == STATUS_CODE_SUCCESS) {
+                return (MovieSearchResult) JSON.deserialize(response.getBody(), MovieSearchResult.class);
+            }    
+        } catch(Exception e) {
+            return new MovieSearchResult(e.getMessage());
         }
         return new MovieSearchResult(ERROR_MESSAGE_UNKNOWN);
     }
 
     public Movie getMovieById(String movieId) {
         setURLParameters(URL_PARAMETER_MOVIE_ID, movieId);
-        HttpRequest request = generateHttpRequest();
-        HttpResponse response = (new Http()).send(request);
-        if (response != null && response.getStatusCode() == STATUS_CODE_SUCCESS) {
-            return (Movie) JSON.deserialize(response.getBody(), Movie.class);
+        try {
+            HttpRequest request = generateHttpRequest();
+            HttpResponse response = (new Http()).send(request);
+            if (response != null && response.getStatusCode() == STATUS_CODE_SUCCESS) {
+                return (Movie) JSON.deserialize(response.getBody(), Movie.class);
+            }    
+        } catch(Exception e) {
+            return new Movie(e.getMessage());
         }
         return new Movie(ERROR_MESSAGE_UNKNOWN);
     }
