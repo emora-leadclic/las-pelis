@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-m-top_small">
+        <lightning-card icon-name="utility:rating" title="Reviews">
+            <div class="slds-p-horizontal_small slds-p-bottom_medium slds-m-top_small">
+                <template if:true={hasReviews}>
+                    <lightning-datatable
+                            key-field="id"
+                            data={reviews.data}
+                            hide-checkbox-column="true"
+                            columns={columns}>
+                    </lightning-datatable>
+                </template>
+                <template if:false={hasReviews}>
+                    <div class="slds-notify slds-notify_alert">
+                        <lightning-icon icon-name="utility:info_alt" size="x-small" variant="inverse"></lightning-icon>
+                        <h2 class="slds-m-left_small">No se ha encontrado ninguna review</h2>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>    
+    </div>
+</template>

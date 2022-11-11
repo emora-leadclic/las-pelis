@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-m-top_small">
+        <lightning-card icon-name="standard:rtc_presence" title="Añade tu Review">
+            <div class="slds-p-bottom_medium">
+                <lightning-record-edit-form object-api-name={reviewObjectName} onsubmit={handleSubmit}>
+                    <lightning-layout multiple-rows vertical-align="start">
+                        <lightning-layout-item padding="horizontal-small" size="12">
+                            <lightning-input-field field-name={ratingFieldName} required="true"></lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="horizontal-small" size="12">
+                            <lightning-input-field field-name={authorFieldName}></lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="horizontal-small" size="12">
+                            <lightning-input-field field-name={reviewFieldName} required="true"></lightning-input-field>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <div class="slds-align_absolute-center" style="margin-top: 5px">
+                        <lightning-button label="Submit" type="submit" icon-name="utility:save"></lightning-button>
+                    </div>
+                </lightning-record-edit-form>        
+            </div>
+        </lightning-card>    
+    </div>
+</template>

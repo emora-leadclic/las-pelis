@@ -7,10 +7,12 @@ public class OMDb {
     private static final String REST_METHOD_GET = 'GET';
     private static final String ERROR_MESSAGE_UNKNOWN = 'An unknown error has occured. Please try later.';
 
+    @AuraEnabled
     public static MovieSearchResult findMovies(String searchText) {
         return (new OMDb()).findMoviesByTitle(searchText);
     }
 
+    @AuraEnabled(cacheable=true)
     public static Movie getMovie(String movieId) {
         return (new OMDb()).getMovieById(movieId);
     }

@@ -1,0 +1,8 @@
+<template>
+    <template if:false={isMovieDetailView}>
+        <c-search-form onmovieselected={setNewMovie}></c-search-form>
+    </template>
+    <template if:true={isMovieDetailView}>
+        <c-movie-detail movie-id={selectedMovieId} onback={navigateToSearch}></c-movie-detail>
+    </template>
+</template>

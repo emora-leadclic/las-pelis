@@ -1,0 +1,19 @@
+.header {
+    width: 100%;
+    background-color: #f7f9fb;
+    font-weight: 100;
+    color:#54698d;
+    padding: 20px;
+    padding-left: 50px;
+}
+.header > .title {
+    font-size: 3rem;
+}
+.search-bar-container {
+    background-color: white;
+}
+.blue-icon {
+    --slds-c-icon-color-foreground-default: #54698d;
+    --slds-c-icon-color-background:  #f7f9fb;
+    vertical-align: text-top;
+}

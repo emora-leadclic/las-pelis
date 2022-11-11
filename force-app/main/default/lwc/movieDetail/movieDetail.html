@@ -1,0 +1,113 @@
+<template>
+    <template if:true={movie}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <lightning-icon icon-name="standard:video" alternative-text="Movie" title="Movie"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate" title={movie.Title}>{movie.Title}</span>
+                                    </h1>
+                                </div>
+                            </div>
+                            <p class="slds-page-header__name-meta">{movie.Released} • {movie.Director} • {movie.Country}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-page-header__col-actions">
+                    <div class="slds-page-header__controls">
+                        <div class="slds-page-header__control">
+                            <button class="slds-button slds-button_neutral" onclick={navigateToSearch}>Volver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="8">
+                <div class="slds-m-top_small">
+                    <lightning-card title="Detalles" icon-name="standard:video">
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Título" field-value={movie.Title}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Año" field-value={movie.Year}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Valoración" field-value={movie.Rated}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Fecha de Publicación" field-value={movie.Released}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Duración" field-value={movie.Runtime}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Género" field-value={movie.Genre}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Director" field-value={movie.Director}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Escritor" field-value={movie.Writer}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Reparto" field-value={movie.Actors}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Trama" field-value={movie.Plot}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="País" field-value={movie.Country}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Premios" field-value={movie.Awards}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Metascore" field-value={movie.Metascore}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Rating IMDB" field-value={movie.imdbRating}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Votos IMDB" field-value={movie.imdbVotes}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Tipo" field-value={movie.Type}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Salida en DVD" field-value={movie.DVD}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Facturación en Taquilla" field-value={movie.BoxOffice}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Producción" field-value={movie.Production}></c-movie-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="horizontal-small">
+                                <c-movie-output-field field-name="Website" field-value={movie.Website}></c-movie-output-field>     
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-card>
+                </div>
+                <c-reviews movie-id={movieId}></c-reviews>
+            </lightning-layout-item>
+            <lightning-layout-item size="4">
+                <div class="slds-m-top_small slds-m-left_small">
+                    <lightning-card title="Poster" icon-name="standard:carousel">
+                        <div class="slds-align_absolute-center">
+                            <img src={moviePoster}>
+                        </div>
+                    </lightning-card>
+                    <c-create-review movie-id={movieId} onreviewcreated={refreshReviews}></c-create-review>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>  
+    </template>
+</template>

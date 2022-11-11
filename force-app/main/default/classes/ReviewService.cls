@@ -4,8 +4,9 @@ public with sharing class ReviewService {
     private static final String ERROR_MESSAGE_EMPTY_REVIEW = 'The review body is missing.';
     private static final String ERROR_MESSAGE_INVALID_RATING = 'The selected rating is invalid.';
     private static final Integer MIN_RATING_VALUE = 0;
-    private static final Integer MAX_RATING_VALUE = 0;
+    private static final Integer MAX_RATING_VALUE = 10;
 
+    @AuraEnabled(cacheable=true)
     public static List<Review__c> getReviewsByMovieId(String movieId) {
         return [
             SELECT
@@ -14,9 +15,12 @@ public with sharing class ReviewService {
                 Review__c
             WHERE
                 MovieId__c = :movieId
+            ORDER BY
+                CreatedDate DESC
         ];
     }
 
+    @AuraEnabled
     public static ReviewCreationResponse createNewReview(Review__c review) {
         try {
             if (String.isBlank(review.MovieId__c)) {
@@ -44,8 +48,8 @@ public with sharing class ReviewService {
 
     public class ReviewCreationResponse {
 
-        public Boolean isSuccess;
-        public String errorMessage;
+        @AuraEnabled public Boolean isSuccess;
+        @AuraEnabled public String errorMessage;
 
         public ReviewCreationResponse() {
             this.isSuccess = true;

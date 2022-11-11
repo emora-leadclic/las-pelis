@@ -1,29 +1,29 @@
 public class Movie extends OMDbResponse {
 
-    public String Title;
-    public String Year;
-    public String Rated;
-    public String Released;
-    public String Runtime;
-    public String Genre;
-    public String Director;
-    public String Writer;
-    public String Actors;
-    public String Plot;
-    public String Language;
-    public String Country;
-    public String Awards;
-    public String Poster;
-    public String Metascore;
-    public String imdbRating;
-    public String imdbVotes;
-    public String imdbID;
-    public String Type;
-    public String DVD;
-    public String BoxOffice;
-    public String Production;
-    public String Website;
-    public List<Rating> Ratings;
+    @AuraEnabled public String Title;
+    @AuraEnabled public String Year;
+    @AuraEnabled public String Rated;
+    @AuraEnabled public String Released;
+    @AuraEnabled public String Runtime;
+    @AuraEnabled public String Genre;
+    @AuraEnabled public String Director;
+    @AuraEnabled public String Writer;
+    @AuraEnabled public String Actors;
+    @AuraEnabled public String Plot;
+    @AuraEnabled public String Language;
+    @AuraEnabled public String Country;
+    @AuraEnabled public String Awards;
+    @AuraEnabled public String Poster;
+    @AuraEnabled public String Metascore;
+    @AuraEnabled public String imdbRating;
+    @AuraEnabled public String imdbVotes;
+    @AuraEnabled public String imdbID;
+    @AuraEnabled public String Type;
+    @AuraEnabled public String DVD;
+    @AuraEnabled public String BoxOffice;
+    @AuraEnabled public String Production;
+    @AuraEnabled public String Website;
+    @AuraEnabled public List<Rating> Ratings;
 
     public Movie(String errorMessage) {
         super(errorMessage);
@@ -31,7 +31,7 @@ public class Movie extends OMDbResponse {
 
     public class Rating {
 
-        public String Source;
-        public String Value;
+        @AuraEnabled public String Source;
+        @AuraEnabled public String Value;
     }
 }

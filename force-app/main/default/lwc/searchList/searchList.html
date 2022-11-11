@@ -1,0 +1,27 @@
+<template>
+    <template if:true={movies}>
+        <lightning-layout multiple-rows="true">
+            <!-- template looping through each boat -->
+            <template for:each={movies} for:item="movie">
+                <!-- lightning-layout-item for each boat -->
+                <lightning-layout-item 
+                    key={movie.imdbID} 
+                    padding="around-small" 
+                    size="12" 
+                    small-device-size="6" 
+                    medium-device-size="4" 
+                    large-device-size="3">
+                    <c-search-list-item movie={movie}></c-search-list-item>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </template>
+    <template if:false={movies}>
+        <div class="slds-m-horizontal_small slds-m-top_small">
+            <div class="slds-notify slds-notify_alert slds-alert_warning">
+                <lightning-icon icon-name="utility:warning" size="x-small" variant="inverse"></lightning-icon>
+                <h2 class="slds-m-left_small">No se ha encontrado ninguna peli con ese título.</h2>
+            </div>    
+        </div>
+    </template>
+</template>

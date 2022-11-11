@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-m-horizontal_small">
+        <div class="header">
+            <div class="title">
+                <span class="slds-p-right_x-small">
+                    <lightning-icon icon-name="utility:play" size="large" class="blue-icon"></lightning-icon>
+                </span>
+                Las Pelis
+            </div>
+            <div class="subtitle">Búsca y crea reviews de tus películas favoritas</div>
+        </div>
+        <div class="search-bar-container">
+            <c-search-bar onsearch={searchMovies}></c-search-bar>
+        </div>    
+    </div>
+    <c-search-list movies={movies}></c-search-list>    
+</template>
