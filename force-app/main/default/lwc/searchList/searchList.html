@@ -1,9 +1,7 @@
 <template>
     <template if:true={movies}>
         <lightning-layout multiple-rows="true">
-            <!-- template looping through each boat -->
             <template for:each={movies} for:item="movie">
-                <!-- lightning-layout-item for each boat -->
                 <lightning-layout-item 
                     key={movie.imdbID} 
                     padding="around-small" 
